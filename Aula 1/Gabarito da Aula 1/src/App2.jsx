@@ -30,3 +30,5 @@ export default App2;
 // header
 // header__link
 // header__link--small
+
+// componentes recebem "props"
