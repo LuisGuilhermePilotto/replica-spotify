@@ -8,6 +8,6 @@
 
 .header__link:hover {
   text-decoration: underline;
-  color: rgb(11, 224, 11);
+  color: #0cc04e;
   transition: color 0.3s ease-in-out;
 }
