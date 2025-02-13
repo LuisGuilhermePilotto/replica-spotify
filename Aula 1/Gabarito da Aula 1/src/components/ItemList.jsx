@@ -1,34 +1,32 @@
 import React from "react";
-
 import styles from "../styles/ItemList.module.css";
 import SingleItem from "./SingleItem";
+import { Link } from "react-router-dom";
 
-const ItemList = ({ title, items }) => {
-  console.log(items);
-
+const ItemList = ({ title, items, itemsArray, path, idPath }) => {
   return (
     <div className={styles["item-list"]}>
       <div className={styles["item-list__header"]}>
         <h2>{title} Populares</h2>
-        <a className={styles["item-list__link"]} href="/">
+        <Link className={styles["item-list__link"]} to={path}>
           Mostrar tudo
-        </a>
+        </Link>
       </div>
 
       <div className={styles["item-list__container"]}>
-        {items === 8 ? (
-          <>
-            for (let index = 0; index < 8; index++) {
-               <SingleItem />   
-            }
-          </>
-        ) : (
-          <>
-            for (let index = 0; index < 16; index++) {
-                 <SingleItem />
-            }
-          </>
-        )}
+        {itemsArray
+          .filter((currentValue, index) => index < items)
+          .map((currentObj, index) => (
+            <SingleItem
+              // id={currentObj.id}
+              // name={currentObj.name}
+              // image={currentObj.image}
+              // banner={currentObj.banner}
+              idPath={idPath}
+              {...currentObj}
+              key={`${title}-${index}`}
+            />
+          ))}
       </div>
     </div>
   );

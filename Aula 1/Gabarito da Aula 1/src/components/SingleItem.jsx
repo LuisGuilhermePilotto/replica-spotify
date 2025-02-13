@@ -2,16 +2,17 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay } from "@fortawesome/free-regular-svg-icons";
 import styles from "../styles/SingleItem.module.css";
+import { Link } from "react-router-dom";
 
-const SingleItem = () => {
+const SingleItem = ({ id, name, image, banner, artist, idPath }) => {
   return (
-    <div className={styles["single-item"]}>
+    <Link to={`${idPath}/${id}`} className={styles["single-item"]}>
       <div className={styles["single-item__div-image-button"]}>
         <div className={styles["single-item__div-image"]}>
           <img
             className={styles["single-item__image"]}
-            src="https://i.scdn.co/image/ab676161000051744dcd8a3bff84cd7703892cf4"
-            alt="Henrique & Juliano"
+            src={image}
+            alt={`Imagem do Artista ${name}`}
           />
         </div>
 
@@ -20,11 +21,13 @@ const SingleItem = () => {
           icon={faCirclePlay}
         />
       </div>
-      <div className={["single-item__texts"]}>
-        <p className={["single-item__title"]}>Henrique & Juliano</p>
-        <p className={["single-item__type"]}>Artista</p>
+      <div className={styles["single-item__texts"]}>
+        <div className={styles["single-item__2lines"]}>
+          <p className={styles["single-item__title"]}>{name}</p>
+        </div>
+        <p className={styles["single-item__type"]}>{artist ?? "Artista"}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -32,3 +32,9 @@ export default App2;
 // header__link--small
 
 // componentes recebem "props"
+
+// Array(items)
+//           .fill()
+//           .map((index) => (
+//             <SingleItem key={`${title}-${index}`} />
+//           ))
