@@ -2,7 +2,7 @@ import React from "react";
 import SongItem from "./SongItem";
 import styles from "../styles/SongList.module.css";
 
-const SongList = () => {
+const SongList = (songsArray) => {
   return (
     <div className={styles["song-List"]}>
       <SongItem />
