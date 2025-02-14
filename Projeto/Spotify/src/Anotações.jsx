@@ -17,6 +17,9 @@ export default App2;
 // nomeação de variavel, funçâo...
 // camelCase => logoSpotify
 
+// nomeação de de classe
+// kebab casa
+
 // export default, posso importar com qualquer nome e sem chaves
 // export "sem deafault", só posso importar entre cahves e com o nome exportado
 
