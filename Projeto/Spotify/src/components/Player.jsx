@@ -8,11 +8,11 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
 
-const Player = () => {
+const Player = ({ duration, id }) => {
   return (
     <div className={styles.player}>
       <div className={styles.player__controllers}>
-        <Link to="/songs/3">
+        <Link to={`/song/${id}`}>
           <FontAwesomeIcon
             className={styles.player__icon}
             icon={faArrowAltCircleLeft}
@@ -22,7 +22,7 @@ const Player = () => {
           className={`${styles["player__icon"]} ${styles["player__icon--play"]}`}
           icon={faCirclePlay}
         />
-        <Link to="/songs/3">
+        <Link to={`/song/${id}`}>
           <FontAwesomeIcon
             className={styles.player__icon}
             icon={faArrowAltCircleRight}
@@ -35,7 +35,7 @@ const Player = () => {
         <div className={styles.player__bar}>
           <div className={styles["player__bar-progress"]}></div>
         </div>
-        <p>2:30</p>
+        <p>{duration}</p>
       </div>
     </div>
   );

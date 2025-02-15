@@ -2,21 +2,21 @@ import React from "react";
 import styles from "../styles/SongItem.module.css";
 import { Link } from "react-router-dom";
 
-const SongItem = () => {
+const SongItem = ({ image, name, duration, artist, audio, id, index }) => {
   return (
-    <Link to="/song/1" className={styles["song-item"]}>
+    <Link to={`/song/${id}`} className={styles["song-item"]}>
       <div className={styles["song-item__number-album"]}>
-        <p>1</p>
+        <p>{index + 1}</p>
         <div className={styles["song-item__album"]}>
           <img
-            src="https://i.scdn.co/image/ab67616d00001e02a8e9382ce68ad5d8758bd998"
-            alt="Imagem da Música"
+            src={image}
+            alt={`Imagem da Música ${name}`}
             className={styles["song-item__image"]}
           />
-          <p className={styles["song-item__name"]}>EAI COMO C TA</p>
+          <p className={styles["song-item__name"]}>{name}</p>
         </div>
       </div>
-      <p>2.30</p>
+      <p>{duration}</p>
     </Link>
   );
 };

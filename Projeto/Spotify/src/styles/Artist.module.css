@@ -56,11 +56,11 @@
 }
 
 .single-item__icon--artist {
-  position: fixed;
-  opacity: 1;
-  transform: translateY(0);
-  right: 25px;
-  bottom: 25px;
+  position: fixed !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  right: 25px !important;
+  bottom: 25px !important;
 }
 
 .single-item__icon {

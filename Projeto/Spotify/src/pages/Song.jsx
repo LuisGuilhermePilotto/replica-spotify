@@ -1,35 +1,55 @@
 import React from "react";
 import styles from "../styles/Song.module.css";
 import Player from "../components/Player";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { songsArray } from "../assets/database/songs";
+import { artistArray } from "../assets/database/artists";
 
 const Song = () => {
+  const { id } = useParams();
+  const songtObj = songsArray.filter(
+    (currentSongsObj) => currentSongsObj.id === Number(id)
+  )[0];
+  const artistObj = artistArray.filter(
+    (currentArtistObj) => currentArtistObj.name === songtObj.artist
+  )[0];
+
+  const songsArrayFromArtist = songsArray.filter(
+    (currentSongsObj) => currentSongsObj.artist === artistObj.name
+  );
+
+  const randomIndex = Math.floor(
+    Math.random() * (songsArrayFromArtist.length - 1)
+  );
+
+  const randomIdFromArtist = songsArrayFromArtist[randomIndex].id;
+
   return (
     <div className={styles.song}>
       <div className={styles.song__container}>
         <div className={styles["song__image-container"]}>
-          <img
-            src="https://i.scdn.co/image/ab67616d00001e02dc16c0b3939b95e09076ec5e"
-            alt="Imagem da Música"
-          />
+          <img src={songtObj.image} alt={`Imagem da Música ${songtObj.name}`} />
         </div>
       </div>
 
       <div className={styles.song__bar}>
-        <Link to="/artist/1" className={styles["song__artist-image"]}>
+        <Link
+          to={`/artist/${artistObj.id}`}
+          className={styles["song__artist-image"]}
+        >
           <img
-            src="https://i.scdn.co/image/ab67616d00001e02dc16c0b3939b95e09076ec5e"
-            alt="Imagem do Artista"
+            src={artistObj.image}
+            alt={`Imagem do Artista ${artistObj.name}`}
             width={75}
             height={75}
           />
         </Link>
 
-        <Player />
+        <Player duration={songtObj.duration} id={randomIdFromArtist} />
 
         <div>
-          <p className={styles.song__name}>A DANADA ME LIGOU</p>
-          <p>MC TUTO </p>
+          <p className={styles.song__name}>{songtObj.name}</p>
+          <p>{artistObj.name} </p>
         </div>
       </div>
     </div>

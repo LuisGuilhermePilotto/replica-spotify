@@ -15,7 +15,7 @@ const Artist = () => {
   )[0];
 
   const songsArrayFromArtist = songsArray.filter(
-    (currentSongsObj) => currentSongsObj.artist === artistArray.name
+    (currentSongsObj) => currentSongsObj.artist === artistObj.name
   );
 
   const randomIndex = Math.floor(

@@ -41,3 +41,8 @@ export default App2;
 //           .map((index) => (
 //             <SingleItem key={`${title}-${index}`} />
 //           ))
+
+// quando componentes se re-renderizão?
+// quando variaveis de estados sao atualizadas em um componente
+
+// Hook - useState
