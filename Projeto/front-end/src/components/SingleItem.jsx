@@ -4,9 +4,9 @@ import { faCirclePlay } from "@fortawesome/free-regular-svg-icons";
 import styles from "../styles/SingleItem.module.css";
 import { Link } from "react-router-dom";
 
-const SingleItem = ({ id, name, image, banner, artist, idPath }) => {
+const SingleItem = ({ _id, name, image, banner, artist, idPath }) => {
   return (
-    <Link to={`${idPath}/${id}`} className={styles["single-item"]}>
+    <Link to={`${idPath}/${_id}`} className={styles["single-item"]}>
       <div className={styles["single-item__div-image-button"]}>
         <div className={styles["single-item__div-image"]}>
           <img

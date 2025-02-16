@@ -2,9 +2,9 @@ import React from "react";
 import styles from "../styles/SongItem.module.css";
 import { Link } from "react-router-dom";
 
-const SongItem = ({ image, name, duration, artist, audio, id, index }) => {
+const SongItem = ({ image, name, duration, artist, audio, _id, index }) => {
   return (
-    <Link to={`/song/${id}`} className={styles["song-item"]}>
+    <Link to={`/song/${_id}`} className={styles["song-item"]}>
       <div className={styles["song-item__number-album"]}>
         <p>{index + 1}</p>
         <div className={styles["song-item__album"]}>
