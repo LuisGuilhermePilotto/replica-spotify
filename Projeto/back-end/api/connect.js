@@ -1,11 +1,12 @@
 // Js Assincrono
 // await async
 // full filled
-
+import dotenv from "dotenv";
 import { MongoClient } from "mongodb";
 
-const URI =
-  "mongodb+srv://Guigu:0689@cluster0.erzp4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+dotenv.config();
+
+const URI = process.env.MONGO_URI;
 
 const client = new MongoClient(URI);
 
